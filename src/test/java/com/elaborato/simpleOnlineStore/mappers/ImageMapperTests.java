@@ -2,6 +2,7 @@ package com.elaborato.simpleOnlineStore.mappers;
 import static org.assertj.core.api.Assertions.assertThat;
 import com.elaborato.simpleOnlineStore.domain.dto.ImageDto;
 import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
+import com.elaborato.simpleOnlineStore.domain.mappers.ImageMapper;
 import com.elaborato.simpleOnlineStore.util.TestDataUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

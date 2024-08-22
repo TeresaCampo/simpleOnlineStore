@@ -1,4 +1,4 @@
-package com.elaborato.simpleOnlineStore.mappers;
+package com.elaborato.simpleOnlineStore.domain.mappers;
 import com.elaborato.simpleOnlineStore.domain.dto.ImageDto;
 import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
 import org.modelmapper.ModelMapper;

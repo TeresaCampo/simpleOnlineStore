@@ -1,4 +1,5 @@
 package com.elaborato.simpleOnlineStore.mappers;
+import com.elaborato.simpleOnlineStore.domain.mappers.ArticleMapper;
 import org.junit.jupiter.api.Test;
 import com.elaborato.simpleOnlineStore.domain.dto.ArticleDto;
 import com.elaborato.simpleOnlineStore.domain.dto.ImageDto;
