@@ -17,7 +17,6 @@ public class SimpleOnlineStoreApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 		final JdbcTemplate restTemplate = new JdbcTemplate(dataSource);
-		//String sql = "INSERT INTO test (nome) VALUES (?)";
 		restTemplate.execute("Select 1");
 	}
 
