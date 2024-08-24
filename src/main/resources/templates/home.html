@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Mayas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-
+    <link rel="stylesheet" href="/css/stiles.css">
+    <style>
+        .content img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+    </style>
 </head>
 <body>
-<div th:replace="commons :: header"></div>
-<h1>Terry</h1>
-<div th:replace="commons :: footer"></div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<div class="wrapper">
+    <header th:replace="commons :: header"></header>
 
+    <main class="content">
+        <img th:src="@{/images/home_image.jpeg}" alt="Home page image">
+        <h1>Per farvi dare sempre il meglio</h1>
+        <p>Nasciamo per voi, per aiutarvi ad affrontare quasliasi sfida...anche quelle più estreme</p>
+        <p>Scopri il nostro catalogo!</p>
+    </main>
+
+    <footer th:replace="commons :: footer"></footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 </body>
 </html>

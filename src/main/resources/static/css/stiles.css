@@ -1,0 +1,50 @@
+:root {
+/*
+    BACKGROUND COLORS PALETTE VERDE
+*/
+    /*--dark-color: #2D2D23;
+    --background-color: #EBEBE2;
+    --header-footer-color: #B7BD94;
+    --text-color: #2D2D23;*/
+
+/*
+     BACKGROUND COLORS PALETTE VERDE PIU' CHIARA
+*/
+        --dark-color: #2D2D23;
+        --background-color: #F2EOCF;
+        --header-footer-color: #B7BD94;
+        --text-color: #2D2D23;
+
+}
+
+p, h1, h2, h3, h4, h5, h6, span, a, li, td {
+    color: var(--text-color);
+}
+
+header{
+    background-color: var( --header-footer-color);
+}
+footer{
+    background-color: var( --header-footer-color);
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.center-text {
+    text-align: center;
+}
+
+/*
+per far si che il body occupi tutta la pagina
+*/
+.content {
+    flex: 1;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

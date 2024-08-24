@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fragments</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/stiles.css">
+
 </head>
 
 <body>
@@ -14,18 +16,20 @@
 
     <header>
         <!--image and text-->
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                    <img th:src="@{/images/Praia_Do_Norte.jpg}" alt="Logo" width="30" height="24"
+                         class="d-inline-block align-text-top">
                     SHOP NAME
                 </a>
             </div>
+
         </nav>
         <!--end of image and text-->
 
         <!--navigation bar-->
-        <ul class="nav justify-content-center">
+        <ul class="nav justify-content-center ">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">HOME</a>
             </li>
@@ -42,9 +46,12 @@
 <!--footer-->
 <div th:fragment="footer">
     <footer>
-        <p>Instagram: NOME_INSTAGRAM</p>
-        <p>Email: EMAIL</p>
-        <p>Copyright © 2024</p>
+        <p>Instagram: <span th:text="#{footer.instagram}">NOME_INSTAGRAM</span></p>
+        <p>Email: <span th:text="#{footer.email}">EMAIL</span></p>
+        <div class="center-text">
+            <button class="btn btn btn-secondary w-50 center-text" type="button">Admin area login</button>
+        </div>
+        <p class="center-text">Copyright © 2024</p>
     </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

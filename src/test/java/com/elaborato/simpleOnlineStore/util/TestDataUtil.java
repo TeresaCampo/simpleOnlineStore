@@ -23,8 +23,8 @@ public final class TestDataUtil {
 
     public static ImageEntity createImageEntity() {
         ImageEntity image = ImageEntity.builder()
-                .fileName("Praia_Do_Norte,_Nazaré,_Portugal.jpg")
-                .filePath("/home/terra/Documents/Spring/uploadImages" + "Praia_Do_Norte,_Nazaré,_Portugal.jpg")
+                .fileName("Praia_Do_Norte.jpg")
+                .filePath("/home/terra/Documents/Spring/uploadImages" + "Praia_Do_Norte.jpg")
                 .build();
         return image;
     }
@@ -41,8 +41,8 @@ public final class TestDataUtil {
 
     public static ImageDto createImageDto() {
         ImageDto image = ImageDto.builder()
-                .fileName("Praia_Do_Norte,_Nazaré,_Portugal.jpg")
-                .filePath("/home/terra/Documents/Spring/uploadImages" + "Praia_Do_Norte,_Nazaré,_Portugal.jpg")
+                .fileName("Praia_Do_Norte.jpg")
+                .filePath("/home/terra/Documents/Spring/uploadImages" + "Praia_Do_Norte.jpg")
                 .build();
         return image;
     }
