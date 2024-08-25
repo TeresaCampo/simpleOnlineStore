@@ -2,7 +2,9 @@ package com.elaborato.simpleOnlineStore.domain.mappers;
 import com.elaborato.simpleOnlineStore.domain.dto.ImageDto;
 import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ImageMapper {
     private ModelMapper modelMapper;
 

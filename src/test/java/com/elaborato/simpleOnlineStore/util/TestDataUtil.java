@@ -16,7 +16,7 @@ public final class TestDataUtil {
         return ArticleEntity.builder()
                 .name("aurora")
                 .price(20.0)
-                .category(Category.NECKLACE)
+                .category(Category.BEGINNERS)
                 .image(image)
                 .build();
     }
@@ -34,7 +34,7 @@ public final class TestDataUtil {
         return ArticleDto.builder()
                 .name("aurora")
                 .price(20.0)
-                .category(Category.NECKLACE)
+                .category(Category.BEGINNERS)
                 .image(image)
                 .build();
     }

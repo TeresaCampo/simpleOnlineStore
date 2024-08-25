@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="articles")
 public class ArticleEntity {
+    @Column(nullable = false)
     @Id
     private String name;
     private Double price;
