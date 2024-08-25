@@ -11,49 +11,37 @@
 </head>
 
 <body>
-<!--header-->
-<div th:fragment="header">
-
-    <header>
-        <!--image and text-->
-        <nav class="navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img th:src="@{/images/Praia_Do_Norte.jpg}" alt="Logo" width="30" height="24"
-                         class="d-inline-block align-text-top">
-                    SHOP NAME
-                </a>
+    <header th:fragment="header">
+        <!--logo and website name-->
+        <nav class="navbar d-flex justify-content-center align-items-center" >
+            <div class="d-flex align-items-center">
+                <img src="/images/Praia_Do_Norte.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-top">
+                <span class="ml-2">MAYAS SURF SHACK</span>
             </div>
-
         </nav>
-        <!--end of image and text-->
 
         <!--navigation bar-->
         <ul class="nav justify-content-center ">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                <a class="nav-link active" aria-current="page" th:href="@{/}">HOME</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">SHOP</a>
+                <a class="nav-link" th:href="@{/shop}" >SHOP</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">ABOUT US</a>
+                <a class="nav-link" th:href="@{/aboutUs}">ABOUT US</a>
             </li>
         </ul>
-        <!--end of navigation bar-->
     </header>
-</div>
-<!--footer-->
-<div th:fragment="footer">
-    <footer>
+
+    <footer th:fragment="footer">
         <p>Instagram: <span th:text="#{footer.instagram}">NOME_INSTAGRAM</span></p>
         <p>Email: <span th:text="#{footer.email}">EMAIL</span></p>
         <div class="center-text">
-            <button class="btn btn btn-secondary w-50 center-text" type="button">Admin area login</button>
+            <a th:href="@{/adminLogin}" class="btn btn-secondary w-50 center-text" role="button">Admin area login</a>
         </div>
         <p class="center-text">Copyright © 2024</p>
     </footer>
-</div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 </body>
 </html>
