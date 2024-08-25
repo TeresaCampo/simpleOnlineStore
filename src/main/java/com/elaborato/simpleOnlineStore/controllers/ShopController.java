@@ -16,7 +16,7 @@ public class ShopController {
         this.articleService = articleService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/shop")
     public String getArticles(Model model) {
         List<ArticleDto> articles = articleService.findAll();
         model.addAttribute("articles", articles); // Add articles to the model
