@@ -1,5 +1,4 @@
-package com.elaborato.simpleOnlineStore.domain;
-
+/*package com.elaborato.simpleOnlineStore.domain;
 import com.elaborato.simpleOnlineStore.domain.dto.ArticleDto;
 import com.elaborato.simpleOnlineStore.domain.dto.ImageDto;
 import com.elaborato.simpleOnlineStore.domain.entities.Category;
@@ -74,8 +73,5 @@ public class DataInitializer implements CommandLineRunner {
         articleService.createArticle(article3);
         articleService.createArticle(article4);
         articleService.createArticle(article5);
-
-
     }
-
-}
+}*/
