@@ -10,8 +10,7 @@ public class SecurityServiceImpl implements SecurityService {
     @Override
     public boolean isUserAuthenticated() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return true;
-        //return authentication != null && authentication.isAuthenticated() && !authentication.getName().equals("anonymousUser");
+        return authentication != null && authentication.isAuthenticated() && !authentication.getName().equals("anonymousUser");
     }
     @Override
     public String getAuthenticatedUserName() {
