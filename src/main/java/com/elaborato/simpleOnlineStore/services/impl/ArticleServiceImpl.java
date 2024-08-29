@@ -17,8 +17,20 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    public boolean articleNameIsInvalidString(String articleName){
+        if(articleName.length()==0) return true;
+        return !articleName.chars().anyMatch(c -> !Character.isWhitespace(c));
+    }
+
+    @Override
     public boolean articleNameInUse(String articleName){
         return articleRepository.findByName(articleName).isPresent();
+
+    }
+
+    @Override
+    public ArticleEntity findArticleByName(String articleName){
+        return articleRepository.findByName(articleName).orElse(null);
 
     }
     @Override
@@ -30,5 +42,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public ArticleEntity createArticleSQL(ArticleEntity articleEntity) {
         return articleRepository.save(articleEntity);
+    }
+
+    @Override
+    public void deleteArticle(ArticleEntity articleEntity){
+        articleRepository.delete(articleEntity);
+
     }
 }

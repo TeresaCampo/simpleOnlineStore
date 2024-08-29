@@ -1,29 +1,29 @@
 package com.elaborato.simpleOnlineStore.domain.mappers;
 
-import com.elaborato.simpleOnlineStore.domain.dto.ShopArticleCard;
+import com.elaborato.simpleOnlineStore.domain.dto.ShopArticleCardDto;
 import com.elaborato.simpleOnlineStore.domain.entities.ArticleEntity;
 import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ShopArticleCardMapper {
-    public ArticleEntity toArticleEntity(ShopArticleCard shopArticleCard){
+    public ArticleEntity toArticleEntity(ShopArticleCardDto shopArticleCardDto){
         return ArticleEntity.builder()
-                .name(shopArticleCard.getName())
-                .price(shopArticleCard.getPrice())
-                .category(shopArticleCard.getCategory())
-                .image(toImageEntity(shopArticleCard))
+                .name(shopArticleCardDto.getName())
+                .price(shopArticleCardDto.getPrice())
+                .category(shopArticleCardDto.getCategory())
+                .image(toImageEntity(shopArticleCardDto))
                 .build();
     }
 
-    public ImageEntity toImageEntity(ShopArticleCard shopArticleCard){
+    public ImageEntity toImageEntity(ShopArticleCardDto shopArticleCardDto){
        return ImageEntity.builder()
-               .fileName(shopArticleCard.getImageFileName())
+               .fileName(shopArticleCardDto.getImageFileName())
                .build();
     }
 
-    public ShopArticleCard toShopArticleCard(ArticleEntity articleEntity){
-        return ShopArticleCard.builder()
+    public ShopArticleCardDto toShopArticleCard(ArticleEntity articleEntity){
+        return ShopArticleCardDto.builder()
                 .name(articleEntity.getName())
                 .price(articleEntity.getPrice())
                 .category(articleEntity.getCategory())

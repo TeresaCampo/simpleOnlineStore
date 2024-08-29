@@ -15,14 +15,10 @@ import org.springframework.web.multipart.MultipartFile;
 @Builder
 public class ShopFormDto {
 
-    @NotEmpty
     private String name;
-    @Positive
     private Double price;
-    @NotNull
     private Category category;
-    @NotNull
-    MultipartFile image;
+    private MultipartFile image;
 }
 
 

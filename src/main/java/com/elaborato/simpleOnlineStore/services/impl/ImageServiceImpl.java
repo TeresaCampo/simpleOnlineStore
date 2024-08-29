@@ -45,4 +45,19 @@ public class ImageServiceImpl implements ImageService {
         }
     }
 
+    @Override
+    public void deleteImageFilesystem(String imageName) {
+        File fileToDelete = new File(imagePath, imageName);
+
+        // Verifica se il file esiste
+        if (fileToDelete.exists()) {
+            // Prova a eliminare il file
+            if (!fileToDelete.delete()) {
+                throw new RuntimeException("Failed to delete the image: " + imageName);
+            }
+        } else {
+            throw new RuntimeException("Image file does not exist: " + imageName);
+        }
+    }
+
 }

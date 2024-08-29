@@ -36,7 +36,10 @@ body {
     text-align: center;
 }
 
-
+.input-error {
+    border-color: red;
+    background-color: #fdd;
+}
 
 /*
 per far si che il body occupi tutta la pagina

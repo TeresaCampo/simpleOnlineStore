@@ -9,4 +9,7 @@ public interface ImageService {
 
 
     ImageEntity createImageFilesystem(ShopFormDto shopFormDto);
+
+
+    void deleteImageFilesystem(String imageName);
 }

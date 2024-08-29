@@ -17,19 +17,19 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         ImageEntity image1= ImageEntity.builder()
-                .fileName("18688foto.jpg")
+                .fileName("image1.jpg")
                 .build();
         ImageEntity image2= ImageEntity.builder()
-                .fileName("images.jpeg")
+                .fileName("image2.jpg")
                 .build();
         ImageEntity image3= ImageEntity.builder()
-                .fileName("T7YLE_media_model_1.jpg")
+                .fileName("image3.jpeg")
                 .build();
         ImageEntity image4= ImageEntity.builder()
-                .fileName("tavola-da-surf-softboard-quicksilver-9-.jpg")
+                .fileName("image4.jpg")
                 .build();
         ImageEntity image5= ImageEntity.builder()
-                .fileName("Tavola-surf-Sin-Noun-ocean-version.jpg")
+                .fileName("image5.jpg")
                 .build();
 
         ArticleEntity article1= ArticleEntity.builder()

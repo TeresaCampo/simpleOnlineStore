@@ -32,9 +32,10 @@
                         <p class="card-text" th:text="${article.price}">Descrizione del card</p>
                         <p class="card-text" th:text="${article.category}">Descrizione del card</p>
                         <div th:if="${authenticatedUser != null}">
-                            <button class="btn btn-info" type="submit">modify</button>
-                            <button class="btn btn-info" type="submit">delete</button>
-                        </div>
+                            <form th:action="@{/delete}" method="post">
+                                <input type="hidden" name="name" th:value="${article.name}" />
+                                <button class="btn btn-info" type="submit">Delete</button>
+                            </form>                        </div>
                     </div>
                 </div>
             </div>
@@ -48,12 +49,17 @@
 
                 <div class="form-group">
                     <label for="name">Article name:</label>
-                    <input type="text" class="form-control" id="name" th:field="*{name}" th:attr="placeholder=${articleAlreadyExists}?'Article already exists, insert a different name': ''"  required>
-
+                    <input type="text" class="form-control" id="name" th:field="*{name}"
+                           th:attr="placeholder=${articleAlreadyExists}? 'Article already exists, insert a different name' : (${nameIsInvalidString}? 'Name should contain at least one character' : '')"
+                           th:classappend="${articleAlreadyExists} ? 'input-error' : (${nameIsInvalidString}? 'input-error' : '')"
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="price">Price:</label>
-                    <input type="number" step="0.01" class="form-control" id="price" th:field="*{price}" required>
+                    <input type="number" step="0.01" class="form-control" id="price" th:field="*{price}"
+                           th:attr="placeholder=${priceNotPositive}?'Insert a positive value': ''"
+                           th:classappend="${priceNotPositive} ? 'input-error' : ''"
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="category">Category</label>
@@ -69,8 +75,6 @@
                 <div class="center-text">
                     <button type="submit" class="btn btn-info">Insert the article</button>
                 </div>
-                <p th:if="${#fields.hasErrors('all')}" th:errors="*{all}">Incorrect date</p>
-
             </form>
         </div>
     </div>
