@@ -17,5 +17,4 @@ public class ImageEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     private String fileName;
-    private String filePath;
 }

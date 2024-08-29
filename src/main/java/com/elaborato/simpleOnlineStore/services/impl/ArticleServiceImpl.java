@@ -1,7 +1,5 @@
 package com.elaborato.simpleOnlineStore.services.impl;
-import com.elaborato.simpleOnlineStore.domain.dto.ArticleDto;
 import com.elaborato.simpleOnlineStore.domain.entities.ArticleEntity;
-import com.elaborato.simpleOnlineStore.domain.mappers.ArticleMapper;
 import com.elaborato.simpleOnlineStore.repositories.ArticleRepository;
 import com.elaborato.simpleOnlineStore.services.ArticleService;
 import org.springframework.stereotype.Service;
@@ -13,22 +11,24 @@ import java.util.stream.StreamSupport;
 @Service
 public class ArticleServiceImpl implements ArticleService {
     private ArticleRepository articleRepository;
-    private ArticleMapper articleMapper;
 
-    public ArticleServiceImpl(ArticleRepository articleRepository, ArticleMapper articleMapper) {
+    public ArticleServiceImpl(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;
-        this.articleMapper = articleMapper;
     }
 
     @Override
-    public ArticleEntity createArticle(ArticleDto articleDto) {
-        return articleRepository.save(articleMapper.mapToEntity(articleDto));
-    }
+    public boolean articleNameInUse(String articleName){
+        return articleRepository.findByName(articleName).isPresent();
 
+    }
     @Override
-    public List<ArticleDto> findAll() {
+    public List<ArticleEntity> findAll() {
         return StreamSupport.stream(articleRepository.findAll().spliterator(), false)
-                .map(articleEntity -> articleMapper.mapToDto(articleEntity))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public ArticleEntity createArticleSQL(ArticleEntity articleEntity) {
+        return articleRepository.save(articleEntity);
     }
 }

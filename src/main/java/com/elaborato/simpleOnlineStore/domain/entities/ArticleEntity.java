@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="articles")
 public class ArticleEntity {
-    @Column(nullable = false)
     @Id
+    @Column(name = "name", unique = true, nullable = false) // Definizione di colonna per chiarezza
     private String name;
     private Double price;
     @Enumerated(EnumType.STRING)

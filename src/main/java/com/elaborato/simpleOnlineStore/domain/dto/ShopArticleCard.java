@@ -1,6 +1,9 @@
 package com.elaborato.simpleOnlineStore.domain.dto;
 
 import com.elaborato.simpleOnlineStore.domain.entities.Category;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,9 +13,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class ArticleDto {
+public class ShopArticleCard {
     private String name;
     private Double price;
     private Category category;
-    private ImageDto image;
+    private String imageFileName;
 }
