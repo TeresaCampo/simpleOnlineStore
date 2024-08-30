@@ -6,7 +6,6 @@ import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
 import com.elaborato.simpleOnlineStore.services.ArticleService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-/*
 @Component
 public class DataInitializer implements CommandLineRunner {
     private final ArticleService articleService;
@@ -16,11 +15,11 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        addArticleIfNotExists("number one", Category.BEGINNERS, 300.5,"image1");
-        addArticleIfNotExists("number two", Category.PROS, 420.0,"image2");
-        addArticleIfNotExists("number three", Category.BEGINNERS, 290.5,"image3");
-        addArticleIfNotExists("number four", Category.PROS, 370.4,"image4");
-        addArticleIfNotExists("number five", Category.BEGINNERS, 300.5,"image5");
+        addArticleIfNotExists("number one", Category.BEGINNERS, 300.5,"image1.jpg");
+        addArticleIfNotExists("number two", Category.PROS, 420.0,"image2.jpg");
+        addArticleIfNotExists("number three", Category.BEGINNERS, 290.5,"image3.jpeg");
+        addArticleIfNotExists("number four", Category.PROS, 370.4,"image4.jpg");
+        addArticleIfNotExists("number five", Category.BEGINNERS, 300.5,"image5.jpg");
     }
 
     private void addArticleIfNotExists(String name, Category category, Double price, String imageFileName) {
@@ -39,4 +38,5 @@ public class DataInitializer implements CommandLineRunner {
             articleService.createArticleSQL(article);
         }
     }
-}*/
+}
+

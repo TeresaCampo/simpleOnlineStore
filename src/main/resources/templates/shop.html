@@ -21,23 +21,25 @@
 <div class="wrapper">
     <header th:replace="commons :: header"></header>
 
-
     <main class="container mt-4 content">
         <div class="row">
             <div th:each="article: ${articlesCards}" class="col-md-4 mb-4">
+
                 <div class="card" style="width: 18rem;">
-                    <img th:src="@{/images(fileName=${article.imageFileName})}" class="card-img-top" alt="Immagine dell'articolo">
+                    <img th:src="@{/images(fileName=${article.imageFileName})}" class="card-img-top" alt="Article photo">
                     <div class="card-body">
-                        <h5 class="card-title" th:text="${article.name}">Titolo Card</h5>
-                        <p class="card-text" th:text="${article.price}">Descrizione del card</p>
-                        <p class="card-text" th:text="${article.category}">Descrizione del card</p>
+                        <h5 class="card-title" th:text="${article.name}">Article name</h5>
+                        <p><span class="card-text" th:text="${article.price}">Article price</span> €</p>
+                        <p class="card-text" th:text="${article.category}">Article category</p>
                         <div th:if="${authenticatedUser != null}">
                             <form th:action="@{/delete}" method="post">
                                 <input type="hidden" name="name" th:value="${article.name}" />
                                 <button class="btn btn-info" type="submit">Delete</button>
-                            </form>                        </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>

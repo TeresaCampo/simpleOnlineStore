@@ -14,8 +14,6 @@
         --background-color: #F2EOCF;
         --header-footer-color: #B7BD94;
         --text-color: #2D2D23;
-        --background-error-color: #F0E3D3;
-
 }
 
 p, h1, h2, h3, h4, h5, h6, span, a, li, td {
@@ -32,11 +30,7 @@ footer{
 body {
     background-color: var(--background-color);
 }
-.error-background{
-    background-color: var(--background-error-color);
 
-
-}
 .center-text {
     text-align: center;
 }
@@ -44,9 +38,6 @@ body {
 .input-error {
     border-color: red;
     background-color: #fdd;
-}
-.error{
-color: red;
 }
 
 /*
