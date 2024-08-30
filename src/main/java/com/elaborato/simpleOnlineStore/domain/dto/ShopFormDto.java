@@ -1,8 +1,6 @@
 package com.elaborato.simpleOnlineStore.domain.dto;
+
 import com.elaborato.simpleOnlineStore.domain.entities.Category;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Data
 @Builder
 public class ShopFormDto {
-
     private String name;
     private Double price;
     private Category category;

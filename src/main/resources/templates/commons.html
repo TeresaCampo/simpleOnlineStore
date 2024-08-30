@@ -11,37 +11,43 @@
 </head>
 
 <body>
-    <header th:fragment="header">
-        <!--logo and website name-->
-        <nav class="navbar d-flex justify-content-center align-items-center" >
-            <div class="d-flex align-items-center">
-                <img src="/images/Praia_Do_Norte.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-top">
+<header th:fragment="header">
+    <nav class="navbar d-flex justify-content-center align-items-center">
+        <div class="d-flex align-items-center">
+            <a th:href=@{/home} class="nav-link active">
+
+                <img src="/images/Praia_Do_Norte.jpg" alt="Logo" width="30" height="24"
+                     class="d-inline-block align-top">
                 <span class="ml-2">MAYAS SURF SHACK</span>
-            </div>
-        </nav>
-
-        <!--navigation bar-->
-        <ul class="nav justify-content-center ">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" th:href="@{/}">HOME</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/shop}" >SHOP</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/aboutUs}">ABOUT US</a>
-            </li>
-        </ul>
-    </header>
-
-    <footer th:fragment="footer">
-        <p>Instagram: <span th:text="#{footer.instagram}">NOME_INSTAGRAM</span></p>
-        <p>Email: <span th:text="#{footer.email}">EMAIL</span></p>
-        <div class="center-text">
-            <a th:href="@{/adminLogin}" class="btn btn-secondary w-50 center-text" role="button">Admin area login</a>
+            </a>
         </div>
-        <p class="center-text">Copyright © 2024</p>
-    </footer>
+    </nav>
+
+    <ul class="nav justify-content-center ">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/}">HOME</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/shop}">SHOP</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/aboutUs}">ABOUT US</a>
+        </li>
+    </ul>
+</header>
+
+<footer th:fragment="footer">
+    <ul style="list-style-type: none;">
+        <li><strong>Instagram:</strong> <span th:text="#{footer.instagram}">NOME_INSTAGRAM</span></li>
+        <li><strong>Email:</strong> <span th:text="#{footer.email}">EMAIL</span></li>
+    </ul>
+
+    <div class="center-text">
+        <a th:href="@{/adminLogin}" class="btn btn-secondary w-50 center-text" role="button">Admin area login</a>
+    </div>
+    <p class="center-text">Copyright © 2024</p>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 </body>
 </html>

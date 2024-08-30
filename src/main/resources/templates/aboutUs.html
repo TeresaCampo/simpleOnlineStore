@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/stiles.css">
     <style>
-        .form-container {
-            margin-bottom: 40px; /* Modifica questo valore per regolare lo spazio */
-        }
         .content img {
             width: 100%;
             height: 300px;
@@ -20,31 +17,30 @@
         }
     </style>
 </head>
+
 <body>
 <div class="wrapper">
     <header th:replace="commons :: header"></header>
 
-
     <main class="container mt-4 content">
-        <h1>Our Journey</h1>
+        <h1>Our journey</h1>
         <p>
-        OceanPulse was founded by a team of dedicated surfers who wanted to revolutionize the surfboard industry. Frustrated by the lack of personalized options and quality in the market, we embarked on a mission to create surfboards that reflect our commitment to excellence and innovation. Our goal is to deliver boards that not only meet but exceed the expectations of surfers around the world.</p>
+            OceanPulse was founded by a team of dedicated surfers who wanted to revolutionize the surfboard industry.
+            Frustrated by the lack of personalized options and quality in the market, we embarked on a mission to create
+            surfboards that reflect our commitment to excellence and innovation. Our goal is to deliver boards that not
+            only meet but exceed the expectations of surfers around the world.</p>
         <img th:src="@{/images/dewaxing-surfboard.jpeg}" alt="Home page image">
 
-        <h1>What Sets Us Apart?</h1>
-        <p>*Precision Crafting: Our surfboards are meticulously designed and handcrafted by experts who understand the nuances of surfboard dynamics. Each board is made with attention to detail to ensure superior performance in every wave.
-
-            *Tailored to You: We offer a range of customization options so you can find or create a board that perfectly suits your style, preferences, and skill level. Your ideal ride is just a few clicks away.
-
-            *Eco-Conscious Commitment: We are deeply committed to protecting the environment that gives us so much joy. Our boards are crafted with sustainable materials, and we continuously seek ways to minimize our environmental impact.
-
-            *Customer-Centric Approach: At OceanPulse, we value every customer’s surfing journey. Our knowledgeable team is here to provide personalized support and advice, ensuring you get the best board and service possible.</p>
+        <h1>What sets us apart?</h1>
+        <ul>
+            <li><strong>Precision Crafting:</strong> Our surfboards are meticulously designed and handcrafted by experts who understand the nuances of surfboard dynamics. Each board is made with attention to detail to ensure superior performance in every wave.</li>
+            <li><strong>Tailored to You:</strong> We offer a range of customization options so you can find or create a board that perfectly suits your style, preferences, and skill level. Your ideal ride is just a few clicks away.</li>
+            <li><strong>Eco-Conscious Commitment:</strong> We are deeply committed to protecting the environment that gives us so much joy. Our boards are crafted with sustainable materials, and we continuously seek ways to minimize our environmental impact.</li>
+            <li><strong>Customer-Centric Approach:</strong> At OceanPulse, we value every customer’s surfing journey. Our knowledgeable team is here to provide personalized support and advice, ensuring you get the best board and service possible.</li>
+        </ul>
 
         <img th:src="@{/images/Surf-Conditions-For-Beginners.jpg}" alt="Home page image">
-
-
     </main>
-
 
     <footer th:replace="commons :: footer"></footer>
 </div>

@@ -2,10 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Error</title>
+    <link rel="stylesheet" href="/css/stiles.css">
+
+    <style>
+        h1 {
+            text-align: center; /* Centra il testo all'interno del body */
+        }
+    </style>
 </head>
-<body>
-<h1>An error occurred</h1>
-<p>Error details:</p>
-<p th:text="${errorMessage}"></p>
+<body class="error-background">
+<h1>An unexpected error occurred</h1>
+<p>We're sorry, but something went wrong.</p>
+
+<div th:if="${errorMessage}!=null">
+    <p>Error details: <span>th:text="${errorMessage}</span></pth:if></p>
+</div>
+<p>Try going back to <a href="/" th:href="@{/}">HOME</a> or contact support if the issue persists.</p>
+
 </body>
 </html>

@@ -5,7 +5,6 @@ import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
 import com.elaborato.simpleOnlineStore.repositories.ImageRepository;
 import com.elaborato.simpleOnlineStore.services.ImageService;
 import org.springframework.stereotype.Service;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,6 +36,7 @@ public class ImageServiceImpl implements ImageService {
             try (FileOutputStream fos = new FileOutputStream(destinationFile)) {
                 fos.write(shopFormDto.getImage().getBytes());
             }
+
             return ImageEntity.builder()
                     .fileName(imageName)
                     .build();
@@ -49,9 +49,7 @@ public class ImageServiceImpl implements ImageService {
     public void deleteImageFilesystem(String imageName) {
         File fileToDelete = new File(imagePath, imageName);
 
-        // Verifica se il file esiste
         if (fileToDelete.exists()) {
-            // Prova a eliminare il file
             if (!fileToDelete.delete()) {
                 throw new RuntimeException("Failed to delete the image: " + imageName);
             }
@@ -59,5 +57,4 @@ public class ImageServiceImpl implements ImageService {
             throw new RuntimeException("Image file does not exist: " + imageName);
         }
     }
-
 }

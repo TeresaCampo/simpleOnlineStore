@@ -1,18 +1,15 @@
 package com.elaborato.simpleOnlineStore.controllers;
 
 import com.elaborato.simpleOnlineStore.services.SecurityService;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AdminLoginController {
-    SecurityService securityService;
 
+    SecurityService securityService;
     public AdminLoginController(SecurityService securityService) {
         this.securityService = securityService;
     }

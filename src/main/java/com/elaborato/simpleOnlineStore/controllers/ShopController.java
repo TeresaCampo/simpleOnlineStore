@@ -12,20 +12,16 @@ import com.elaborato.simpleOnlineStore.services.SecurityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
 public class ShopController {
-    private ArticleService articleService;
-    private ImageService imageService;
-    SecurityService securityService;
-    ShopFormMapper shopFormMapper;
-    ShopArticleCardMapper shopArticleCardMapper;
-
+    private final ArticleService articleService;
+    private final ImageService imageService;
+    private final SecurityService securityService;
+    private final ShopFormMapper shopFormMapper;
+    private final ShopArticleCardMapper shopArticleCardMapper;
 
     public ShopController(ArticleService articleService, ImageService imageService, SecurityService securityService, ShopFormMapper shopFormMapper, ShopArticleCardMapper shopArticleCardMapper) {
         this.articleService = articleService;
@@ -40,9 +36,8 @@ public class ShopController {
         model.addAttribute("authenticatedUser", securityService.getAuthenticatedUserName());
         model.addAttribute("shopFormDto", new ShopFormDto());
 
-
         List<ShopArticleCardDto> articles = articleService.findAll().stream()
-                .map(articleEntity -> shopArticleCardMapper.toShopArticleCard(articleEntity))
+                .map(shopArticleCardMapper::toShopArticleCard)
                 .collect(Collectors.toList());
         model.addAttribute("articlesCards", articles);
         return "shop";
@@ -52,30 +47,35 @@ public class ShopController {
     public String uploadArticle(@ModelAttribute("shopFormDto") ShopFormDto shopFormDto,
                                 Model model){
         // Check for validation errors
-        boolean articleAlreadyExists=articleService.articleNameInUse(shopFormDto.getName());
-        model.addAttribute("articleAlreadyExists", articleAlreadyExists);
+            // input field: name
+            boolean articleAlreadyExists=articleService.articleNameInUse(shopFormDto.getName());
+            model.addAttribute("articleAlreadyExists", articleAlreadyExists);
 
-        boolean nameIsInvalidString=articleService.articleNameIsInvalidString(shopFormDto.getName());
-        model.addAttribute("nameIsInvalidString", nameIsInvalidString);
-        if( articleAlreadyExists ||nameIsInvalidString ){
-            shopFormDto.setName(null);
-        }
+            boolean nameIsInvalidString=articleService.articleNameIsInvalidString(shopFormDto.getName());
+            model.addAttribute("nameIsInvalidString", nameIsInvalidString);
+            if( articleAlreadyExists ||nameIsInvalidString ){
+                shopFormDto.setName(null);
+            }
 
-        boolean priceNotPositive=(shopFormDto.getPrice()<=0);
-        model.addAttribute("priceNotPositive", priceNotPositive);
-        if( priceNotPositive){
-            shopFormDto.setPrice(null);
-        }
+            //input field: price
+            boolean priceNotPositive=(shopFormDto.getPrice()<=0);
+            model.addAttribute("priceNotPositive", priceNotPositive);
+            if( priceNotPositive){
+                shopFormDto.setPrice(null);
+            }
+
+        // If validation errors
         if (articleAlreadyExists || nameIsInvalidString ||  priceNotPositive ) {
             model.addAttribute("authenticatedUser", securityService.getAuthenticatedUserName());
 
             List<ShopArticleCardDto> articles = articleService.findAll().stream()
-                    .map(articleEntity -> shopArticleCardMapper.toShopArticleCard(articleEntity))
+                    .map(shopArticleCardMapper::toShopArticleCard)
                     .collect(Collectors.toList());
             model.addAttribute("articlesCards", articles);
             return "shop";
         }
-        //If there are no validation errors
+
+        //If no validation errors
         ImageEntity imageEntity=imageService.createImageFilesystem(shopFormDto);
 
         ArticleEntity articleEntity= shopFormMapper.toArticleEntity(shopFormDto);
@@ -87,19 +87,10 @@ public class ShopController {
 
     @PostMapping("/delete")
     public String deleteArticle(@RequestParam("name") String articleName) {
-
         ArticleEntity articleEntity=articleService.findArticleByName(articleName);
-      imageService.deleteImageFilesystem(articleEntity.getImage().getFileName());
+        imageService.deleteImageFilesystem(articleEntity.getImage().getFileName());
         articleService.deleteArticle(articleEntity);
 
         return "redirect:/home";
-    }
-
-
-    @ExceptionHandler(RuntimeException.class)
-
-    public String handleRuntimeException(RuntimeException e, Model model) {
-        model.addAttribute("errorMessage", e.getMessage());
-        return "error";
     }
 }

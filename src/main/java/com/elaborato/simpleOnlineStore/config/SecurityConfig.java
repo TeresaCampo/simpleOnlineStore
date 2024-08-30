@@ -11,33 +11,34 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-
 import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorizeRequests ->
-                        authorizeRequests.anyRequest().permitAll() // Permetti l'accesso a tutte le richieste
+                        authorizeRequests
+                                .requestMatchers("/delete").hasRole("ADMIN")
+                                .requestMatchers("/shop/upload").hasRole("ADMIN")
+                                .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
                     .loginPage("/adminLogin")
-                    .failureUrl("/adminLogin?error=true")  // Reindirizza alla pagina di login con un parametro di errore in caso di fallimento
-                    .defaultSuccessUrl("/home")  // Reindirizza dopo il login
+                    .failureUrl("/adminLogin?error=true")
+                    .defaultSuccessUrl("/shop")
                     .permitAll()
                 )
                .logout(logout -> logout
                         .logoutUrl("/adminLogin/logout")
-                        .logoutSuccessUrl("/home")
-                       .invalidateHttpSession(true)
-                       .deleteCookies("JSESSIONID") // Cancella i cookie di sessione
-
+                        .logoutSuccessUrl("/shop")
                );
         return http.build();
     }
+
     @Bean
     UserDetailsManager users(DataSource dataSource) {
         JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
@@ -48,10 +49,8 @@ public class SecurityConfig {
                     .password("$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW")
                     .roles("ADMIN")
                     .build();
-
             users.createUser(admin);
         }
-
         return users;
     }
 
@@ -59,5 +58,4 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }

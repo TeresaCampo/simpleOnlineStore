@@ -3,8 +3,8 @@ package com.elaborato.simpleOnlineStore.domain.mappers;
 import com.elaborato.simpleOnlineStore.domain.dto.ShopFormDto;
 import com.elaborato.simpleOnlineStore.domain.entities.ArticleEntity;
 import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
+
 @Component
 public class ShopFormMapper {
     public ImageEntity toImageEntity(ShopFormDto shopFormDto){

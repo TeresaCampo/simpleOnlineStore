@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"     >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -8,40 +8,44 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/stiles.css">
     <style>
-         footer{
-            margin-top: 40px; !important;
-        }
+        footer{
+           margin-top: 40px; !important;
+       }
     </style>
 </head>
+
 <body>
 <div class="wrapper">
     <header th:replace="commons :: header"></header>
 
     <main class="container mt-4 content">
+
         <div th:if="${authenticatedUser == null}">
+            <div class="container mt-4">
 
-        <div class="container mt-4">
-            <h2 class="center-text ">Admin Login</h2>
-            <form th:action="@{/adminLogin}" method="post">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
+                <h2 class="center-text ">Admin Login</h2>
+                <form th:action="@{/adminLogin}" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
 
-                <div class="center-text">
-                    <p th:if="${loginError}" class="error">Wrong username or password, try again</p>
-                    <button class="btn btn btn-primary w-50 center-text" type="submit">login</button>
-                </div>
-            </form>
+                    <div class="center-text">
+                        <p th:if="${loginError}" class="error">Wrong username or password, try again.</p>
+                        <button class="btn btn btn-primary w-50 center-text" type="submit">login</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        </div>
+
         <div th:if="${authenticatedUser != null}">
             <div class="container mt-4">
-                <h2 class="center-text">You are logged as: <span th:text="${authenticatedUser}">Bob</span> log out</h2>
+
+                <h2 class="center-text">You are logged as: <span th:text="${authenticatedUser}"></span></h2>
                 <form th:action="@{/adminLogin/logout}" method="post">
                     <div class="center-text">
                         <button class="btn btn-primary w-50" type="submit">Log out</button>
@@ -49,7 +53,6 @@
                 </form>
             </div>
         </div>
-
     </main>
 
     <footer th:replace="commons :: footer"></footer>
