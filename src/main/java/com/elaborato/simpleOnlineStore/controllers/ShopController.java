@@ -91,6 +91,6 @@ public class ShopController {
         imageService.deleteImageFilesystem(articleEntity.getImage().getFileName());
         articleService.deleteArticle(articleEntity);
 
-        return "redirect:/home";
+        return "redirect:/shop";
     }
 }
