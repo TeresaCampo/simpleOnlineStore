@@ -1,8 +1,8 @@
-package com.elaborato.simpleOnlineStore.domain;
+package com.elaborato.simpleOnlineStore.persistence;
 
-import com.elaborato.simpleOnlineStore.domain.entities.ArticleEntity;
-import com.elaborato.simpleOnlineStore.domain.entities.Category;
-import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
+import com.elaborato.simpleOnlineStore.persistence.entities.ArticleEntity;
+import com.elaborato.simpleOnlineStore.persistence.entities.Category;
+import com.elaborato.simpleOnlineStore.persistence.entities.ImageEntity;
 import com.elaborato.simpleOnlineStore.services.ArticleService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

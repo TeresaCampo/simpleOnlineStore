@@ -1,4 +1,4 @@
-package com.elaborato.simpleOnlineStore.domain.entities;
+package com.elaborato.simpleOnlineStore.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package com.elaborato.simpleOnlineStore.services;
 
-import com.elaborato.simpleOnlineStore.domain.entities.ArticleEntity;
+import com.elaborato.simpleOnlineStore.persistence.entities.ArticleEntity;
 import java.util.List;
 
 public interface ArticleService {

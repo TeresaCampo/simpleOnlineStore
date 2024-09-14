@@ -1,8 +1,7 @@
 package com.elaborato.simpleOnlineStore.services;
 
-import com.elaborato.simpleOnlineStore.domain.dto.ShopFormDto;
-import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
-import org.springframework.web.multipart.MultipartFile;
+import com.elaborato.simpleOnlineStore.controllers.dto.ShopFormDto;
+import com.elaborato.simpleOnlineStore.persistence.entities.ImageEntity;
 
 public interface ImageService {
     public ImageEntity createImageSQL(ImageEntity imageEntity);

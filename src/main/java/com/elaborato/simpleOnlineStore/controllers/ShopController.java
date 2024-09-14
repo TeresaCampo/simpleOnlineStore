@@ -1,11 +1,11 @@
 package com.elaborato.simpleOnlineStore.controllers;
 
-import com.elaborato.simpleOnlineStore.domain.dto.ShopArticleCardDto;
-import com.elaborato.simpleOnlineStore.domain.dto.ShopFormDto;
-import com.elaborato.simpleOnlineStore.domain.entities.ArticleEntity;
-import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
-import com.elaborato.simpleOnlineStore.domain.mappers.ShopArticleCardMapper;
-import com.elaborato.simpleOnlineStore.domain.mappers.ShopFormMapper;
+import com.elaborato.simpleOnlineStore.controllers.dto.ShopArticleCardDto;
+import com.elaborato.simpleOnlineStore.controllers.dto.ShopFormDto;
+import com.elaborato.simpleOnlineStore.persistence.entities.ArticleEntity;
+import com.elaborato.simpleOnlineStore.persistence.entities.ImageEntity;
+import com.elaborato.simpleOnlineStore.controllers.mappers.ShopArticleCardMapper;
+import com.elaborato.simpleOnlineStore.controllers.mappers.ShopFormMapper;
 import com.elaborato.simpleOnlineStore.services.ArticleService;
 import com.elaborato.simpleOnlineStore.services.ImageService;
 import com.elaborato.simpleOnlineStore.services.SecurityService;

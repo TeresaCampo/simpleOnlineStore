@@ -1,8 +1,8 @@
-package com.elaborato.simpleOnlineStore.domain.mappers;
+package com.elaborato.simpleOnlineStore.controllers.mappers;
 
-import com.elaborato.simpleOnlineStore.domain.dto.ShopFormDto;
-import com.elaborato.simpleOnlineStore.domain.entities.ArticleEntity;
-import com.elaborato.simpleOnlineStore.domain.entities.ImageEntity;
+import com.elaborato.simpleOnlineStore.controllers.dto.ShopFormDto;
+import com.elaborato.simpleOnlineStore.persistence.entities.ArticleEntity;
+import com.elaborato.simpleOnlineStore.persistence.entities.ImageEntity;
 import org.springframework.stereotype.Component;
 
 @Component

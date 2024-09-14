@@ -1,7 +1,7 @@
 package com.elaborato.simpleOnlineStore.services.impl;
 
-import com.elaborato.simpleOnlineStore.domain.entities.ArticleEntity;
-import com.elaborato.simpleOnlineStore.repositories.ArticleRepository;
+import com.elaborato.simpleOnlineStore.persistence.entities.ArticleEntity;
+import com.elaborato.simpleOnlineStore.persistence.repositories.ArticleRepository;
 import com.elaborato.simpleOnlineStore.services.ArticleService;
 import org.springframework.stereotype.Service;
 import java.util.List;

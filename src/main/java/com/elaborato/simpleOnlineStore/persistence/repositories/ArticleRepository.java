@@ -1,6 +1,6 @@
-package com.elaborato.simpleOnlineStore.repositories;
+package com.elaborato.simpleOnlineStore.persistence.repositories;
 
-import com.elaborato.simpleOnlineStore.domain.entities.ArticleEntity;
+import com.elaborato.simpleOnlineStore.persistence.entities.ArticleEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

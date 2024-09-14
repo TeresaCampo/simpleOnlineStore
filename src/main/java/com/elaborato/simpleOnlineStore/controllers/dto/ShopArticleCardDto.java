@@ -1,6 +1,6 @@
-package com.elaborato.simpleOnlineStore.domain.dto;
+package com.elaborato.simpleOnlineStore.controllers.dto;
 
-import com.elaborato.simpleOnlineStore.domain.entities.Category;
+import com.elaborato.simpleOnlineStore.persistence.entities.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
